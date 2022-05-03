@@ -12,4 +12,21 @@ Template.nav.events({
   }
 });
 
-Template.main.events({});
+Template.main.events({
+  'click .js-saveProfile'() {
+    let pic = $("#profPic").val();
+    let fname = $("#first").val();
+    socialdb.insert({
+      "picPath": pic,
+      "fname": fname,
+      "createdOn": new Date().getTime()
+    });
+    $("#addModal").modal("hide");
+  }
+});
+
+Template.profile.helpers({
+  profiles() {
+    return socialdb.find();
+  }
+});
