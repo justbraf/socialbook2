@@ -16,17 +16,40 @@ Template.main.events({
   'click .js-saveProfile'() {
     let pic = $("#profPic").val();
     let fname = $("#first").val();
-    socialdb.insert({
-      "picPath": pic,
-      "fname": fname,
-      "createdOn": new Date().getTime()
-    });
+    let sex = $("#male").prop("checked") ? "male" : "female";
+    // if ($("#male").prop("checked")) {
+    //   sex = "male";
+    // }
+    // else {
+    //   sex = "female";
+    // }
+    // socialdb.insert({
+    //   "picPath": pic,
+    //   "fname": fname,
+    //   "createdOn": new Date().getTime()
+    // });
     $("#addModal").modal("hide");
+  },
+  'input #profPic'() {
+    let path = $("#profPic").val();
+    path = !path ? "unisex-avatar.png" : path;
+    $("#displayPic").prop("src", path);
+    console.log(path);
   }
 });
+
 
 Template.profile.helpers({
   profiles() {
     return socialdb.find();
   }
 });
+
+/*
+profile picture
+first
+last
+age
+sex
+description
+*/
