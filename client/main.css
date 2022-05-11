@@ -22,3 +22,7 @@ body {
 .w-70 {
   width: 70%;
 }
+
+.errorBox {
+  border: 3px solid red !important;
+}

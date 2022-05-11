@@ -1,5 +1,6 @@
 <head>
   <title>Social Book</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
 </head>
 
 
@@ -42,6 +43,7 @@
   </div>
 
   {{> addProf}}
+  {{> viewProf}}
 </template>
 
 <template name="profile">
@@ -54,7 +56,9 @@
         <div class="mb-1 text-muted">Nov 12</div>
         <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
           content.</p>
-        <a href="#" class="stretched-link">Continue reading</a>
+        <p id="icn">edit <i class="fa-solid fa-trash-can"></i>
+        </p>
+        <a href="#" class="stretched-link js-view">Continue reading</a>
       </div>
       <div class="col-auto d-none d-lg-block profHeight">
         <img class="w-100" src="{{picPath}}" alt="">
@@ -90,13 +94,13 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon2">First Name</span>
-            <input id="first" type="text" class="form-control" placeholder="Please enter the first name"
+            <input id="firstN" type="text" class="form-control" placeholder="Please enter the first name"
               aria-label="first name" aria-describedby="basic-addon2">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon3">Last Name</span>
-            <input type="text" class="form-control" placeholder="Please enter the last name" aria-label="last name"
-              aria-describedby="basic-addon3">
+            <input id="lastN" type="text" class="form-control" placeholder="Please enter the last name"
+              aria-label="last name" aria-describedby="basic-addon3">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon4">Age</span>
@@ -124,6 +128,35 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary js-saveProfile">Add Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="viewProf">
+  <div class="modal" tabindex="-1" id="viewModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="chkMe">Modal body text goes here.</p>
+          <p>edit <i class="fa-solid fa-trash"></i>
+            <i class="fas fa-question-circle"></i> <!-- solid style of the question circle icon -->
+            <i class="far fa-question-circle"></i> <!-- regular style of the question circle icon -->
+            <i class="fal fa-question-circle"></i> <!-- light style of the question circle icon -->
+
+            <i class="fab fa-facebook"></i> <!-- facebook brand icon-->
+            <i class="fab fa-facebook-f"></i> <!-- facebook "f" brand icon-->
+
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
