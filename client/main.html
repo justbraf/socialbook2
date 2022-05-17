@@ -1,6 +1,8 @@
 <head>
   <title>Social Book</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+    integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 
@@ -48,7 +50,7 @@
 
 <template name="profile">
   {{#each profiles}}
-  <div class="col-md-4">
+  <div class="col-md-4" id="{{_id}}">
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
         <strong class="d-inline-block mb-2 text-primary">World</strong>
@@ -56,8 +58,6 @@
         <div class="mb-1 text-muted">Nov 12</div>
         <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
           content.</p>
-        <p id="icn">edit <i class="fa-solid fa-trash-can"></i>
-        </p>
         <a href="#" class="stretched-link js-view">Continue reading</a>
       </div>
       <div class="col-auto d-none d-lg-block profHeight">
@@ -143,15 +143,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <input id="docId" type="hidden">
           <p id="chkMe">Modal body text goes here.</p>
-          <p>edit <i class="fa-solid fa-trash"></i>
-            <i class="fas fa-question-circle"></i> <!-- solid style of the question circle icon -->
-            <i class="far fa-question-circle"></i> <!-- regular style of the question circle icon -->
-            <i class="fal fa-question-circle"></i> <!-- light style of the question circle icon -->
-
-            <i class="fab fa-facebook"></i> <!-- facebook brand icon-->
-            <i class="fab fa-facebook-f"></i> <!-- facebook "f" brand icon-->
-
+          <p><i class="fa-solid fa-pen"></i> <i class="fa-solid fa-trash-can js-delete"></i>
           </p>
         </div>
         <div class="modal-footer">

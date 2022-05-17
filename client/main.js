@@ -37,10 +37,19 @@ Template.main.events({
   },
   'click .js-view'() {
     let that = this;
-    $("#chkMe").html(that._id);
+    $("#docId").val(that._id);
     $("#chkMe").html("<h2>" + $("#chkMe").html() + "</h2>profile picture<br>first<br>last<br>age<br>sex<br>description");
-    console.table(that);
+    // console.table(that);
     $("#viewModal").modal("show");
+  },
+  "click .js-delete"() {
+    let dId = $("#docId").val();
+    $("#viewModal").modal("hide");
+    $("#" + dId).fadeOut("slow", () => {
+      socialdb.remove({
+        "_id": dId
+      });
+    });
   }
 });
 
