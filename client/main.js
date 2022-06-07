@@ -9,6 +9,7 @@ import './navBar/navBar.html';
 import './viewProfile/viewProfile.html';
 import './addProfile/addProfile.html';
 import './profiles/profiles.html';
+import './profiles/profiles.js';
 import './confirmDel/confirmDel.html';
 import './confirmDel/confirmDel.js';
 
@@ -72,11 +73,7 @@ let validateAddForm = (fn, ln) => {
   return valid;
 }
 
-Template.profile.helpers({
-  profiles() {
-    return socialdb.find();
-  }
-});
+
 
 /*
 profile picture
